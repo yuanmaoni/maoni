@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <style>
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        password:<input type="password" v-model="password" @change="check()">
+        <div class="error" v-if="errorFlag">{{message}}</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                password: '',
+                errorFlag: false,
+                message: '6文字以上入力してください'
+            },
+            methods: {
+                check: function () {
+                    if (this.password.length < 6) {
+                        this.errorFlag = true
+                    } else {
+                        this.errorFlag = false
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

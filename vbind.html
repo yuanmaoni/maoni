@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="m-3">
+            <div>
+                <label> input image width:
+                    <input type="text" v-model="imageWidth"
+                        class="p-1 border ring-1 rounded-md border-color-300 mb-3" />
+                </label>
+            </div>
+            <img :width="imageWidth"
+                src="https://codelikes.com/wp-content/uploads/2019/10/MIYA157092731_TP_V-e1601052110285.png" />
+                
+                <!-- <img v-bind:style="{ width: imageWidth + 'rem'  }"
+                src="https://codelikes.com/wp-content/uploads/2019/10/MIYA157092731_TP_V-e1601052110285.png" />
+            </div> -->
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imageWidth: 100
+            }
+        })
+    </script>
+</body>
+
+</html>

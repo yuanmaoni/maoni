@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>映画</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+    </script>
+    <style>
+        button {
+            font-size: large;
+            background-color: orange;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="https://eiga.k-img.com/images/assets/logo_nav.png?1527651862" alt="">
+        <button @click="handleClick">上映中の映画</button>
+        <ul class="films">
+            <li v-for="data in info" :key="data.filmId">
+                {{data.name}}
+                <img :src="data.poster" alt="">
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: "#box",
+            data: {
+                info: []
+            },
+            methods: {
+                async handleClick() {
+                    let result = await axios.get("./test.json");
+                    let resultData = result.data.data.films;
+                    console.log(resultData);
+                    this.info =  resultData
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

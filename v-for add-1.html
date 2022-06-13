@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-for学習</title>
+        <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app" style="margin: 50px 60px;width: 600px;">
+        お名前
+        <div>
+            <input type="text" v-model="name" placeholder="お名前を入力してください" style="width: 300px;height: 40px;">
+            <button @click="add" style="width: 60px;height: 40px;">追加</button>
+        </div>
+        <ul>
+            <li v-for="item in list" :key="item.index">
+                <input type="checkbox"> {{item.name}}
+                <button @click="del(item)">削除</button>
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            newId: 3,
+            list: [{
+                id: 1,
+                name: '田中'
+            }, {
+                id: 2,
+                name: '渡辺'
+            }, {
+                id: 3,
+                name: '木村'
+            }]
+        },
+        methods: {
+            del(item){
+                this.list.splice(this.list.indexOf(item),1)
+            },
+            add() {
+                let tempName=this.name.replace(/(^\s*)|(\s*$)/g, "")
+                if (tempName === '' || tempName === undefined ||tempName === null ) {
+                    alert("名前を入力してください。")
+                    return
+                }
+                this.list.unshift({
+                    id: this.newId++,
+                    name: this.name.replace(/(^\s*)|(\s*$)/g, "")
+                })
+                this.name = ''
+            }
+        }
+    });
+</script>
+
+</html>
