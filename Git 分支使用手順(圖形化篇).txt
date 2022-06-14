@@ -1,0 +1,50 @@
+Git 分支使用手順  圖形化篇
+
+
+
+
+為了保持本地main(master)資料為最新版，所以先pull
+
+↓↓↓↓↓↓↓↓↓↓
+
+建立本地分支chami create branch
+
+↓↓↓↓↓↓↓↓↓↓
+
+確認分支是否建立成功，browse references
+
+↓↓↓↓↓↓↓↓↓↓
+
+切換到本地分支chami checkout
+
+↓↓↓↓↓↓↓↓↓↓
+
+在chami分支修改內容
+
+↓↓↓↓↓↓↓↓↓↓
+
+切回main(master)分支
+
+↓↓↓↓↓↓↓↓↓↓
+
+合併分支merge from chami
+
+↓↓↓↓↓↓↓↓↓↓
+
+刪除分支chami remove branch(就在合併分支完的視窗上的左下角)
+
+↓↓↓↓↓↓↓↓↓↓
+
+如果是新增資料，在commit前要先add
+
+↓↓↓↓↓↓↓↓↓↓
+
+commit 到本地倉庫
+
+↓↓↓↓↓↓↓↓↓↓
+
+先pull確認本地為最新版
+
+↓↓↓↓↓↓↓↓↓↓
+
+push到遠端remote
